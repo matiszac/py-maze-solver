@@ -16,11 +16,11 @@ class Cell():
         move_line_color = Color.RED
         if undo:
             move_line_color = Color.GRAY
-        fpx, fpy = int((self._x2 - self._x1) / 2 + self._x1), int((self._y2 - self._y1) / 2 + self._y1)
-        tpx, tpy = int((to_cell._x2 - to_cell._x1) / 2 + to_cell._x1), int((to_cell._y2 - to_cell._y1) / 2 + to_cell._y1)
+        fpx, fpy = int((self._x2 - self._x1) // 2 + self._x1), int((self._y2 - self._y1) // 2 + self._y1)
+        tpx, tpy = int((to_cell._x2 - to_cell._x1) // 2 + to_cell._x1), int((to_cell._y2 - to_cell._y1) // 2 + to_cell._y1)
         self._win.draw_line(Line(Point(fpx, fpy), Point(tpx, tpy)), move_line_color)
     
-    def draw(self, cell_line_color):
+    def draw(self, cell_line_color=Color.BLACK):
         tl, tr = Point(self._x1, self._y1), Point(self._x2, self._y1)
         bl, br = Point(self._x1, self._y2), Point(self._x2, self._y2)
         if self.has_top_wall:
