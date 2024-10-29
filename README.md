@@ -1,3 +1,5 @@
 # Python Maze Solver
-> Written with the `Tkinter` lib.
 
+Generates a random maze and attempts to solve it.
+
+- UI: `Tkinter`
