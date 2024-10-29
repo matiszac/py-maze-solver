@@ -9,7 +9,7 @@ Y_CELLS = int(WINDOW_HEIGHT // CELL_SIZE)
 
 def main():
     win = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
-    maze = Maze(4, 4, Y_CELLS, X_CELLS, CELL_SIZE, CELL_SIZE, win)
+    maze = Maze(4, 4, Y_CELLS, X_CELLS, CELL_SIZE, CELL_SIZE, win, 69) # nice
     win.wait_for_close()
 
 

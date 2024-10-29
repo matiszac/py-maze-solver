@@ -3,14 +3,16 @@ from const import Color
 from window import Window
 
 class Cell():
-    def __init__(self, win: Window, x1, y1, x2, y2):
+    def __init__(self, win: Window = None, x1 = None, y1 = None, x2 = None, y2 = None):
         self._x1, self._y1 = x1, y1
         self._x2, self._y2 = x2, y2
+        self._visited = False
         self._win = win
         self.has_top_wall = True
         self.has_left_wall = True
         self.has_bottom_wall = True
         self.has_right_wall = True
+
 
     def draw_move(self, to_cell, undo=False):
         move_line_color = Color.RED
@@ -25,9 +27,17 @@ class Cell():
         bl, br = Point(self._x1, self._y2), Point(self._x2, self._y2)
         if self.has_top_wall:
             self._win.draw_line(Line(tr, tl), cell_line_color)
+        else:
+            self._win.draw_line(Line(tr, tl), Color.WHITE)
         if self.has_left_wall:
             self._win.draw_line(Line(tl, bl), cell_line_color)
+        else:
+            self._win.draw_line(Line(tl, bl), Color.WHITE)
         if self.has_bottom_wall:
             self._win.draw_line(Line(bl, br), cell_line_color)
+        else:
+            self._win.draw_line(Line(bl, br), Color.WHITE)
         if self.has_right_wall:
             self._win.draw_line(Line(br, tr), cell_line_color)
+        else:
+            self._win.draw_line(Line(br, tr), Color.WHITE)
